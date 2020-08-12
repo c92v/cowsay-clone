@@ -28,7 +28,17 @@ void print_text()
     std::getline(std::cin, line);
 
     size_t size = line.size();
-    
+    for (int i = 0; i < 3; ++i)
+    {
+        for (int j = 0; j < size+2; ++j)
+        {
+            if (i != 0 && i != 2 && j != 0 && j != size+1)
+                std::cout << line.at(j-1);
+            else
+                std::cout << '@';
+        }
+        std::cout << std::endl;
+    }
 }
 
 int main() 
