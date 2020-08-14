@@ -10,7 +10,7 @@
 void load_image()
 {
     std::string line; 
-    std::ifstream img("image2.txt");
+    std::ifstream img("image.txt");
 
     if (!img.is_open()) 
     {
@@ -27,10 +27,9 @@ void load_image()
     }
 }
 
-void print_text()
+void print_text(std::string line)
 {
-    std::string line;
-    std::getline(std::cin, line);
+    //std::getline(std::cin, line);
 
     size_t size = line.size();
     //TODO: Add line char. limit, multi-line format rules
@@ -47,6 +46,12 @@ void print_text()
             //         \
             //          \
             //          (image here)
+            else if ((i == 1 && j == 0) || (i == 1 && j == size+1))
+                std::cout << '|';
+            else if ((i == 2 && j == 0) || (i == 0 && j == size+1))
+                std::cout << '\\';
+            else if ((i == 2 && j == size+1) || (i == 0 && j == 0))
+                std::cout << '/';
             else
                 std::cout << '-';
         }
@@ -54,9 +59,9 @@ void print_text()
     }
 }
 
-int main() 
+int main(int argc, char* argv[]) 
 {
-    std::cout << "Enter text: ";
-    print_text();
+    std::string line = argv[1];
+    print_text(line);
     load_image();
 }
