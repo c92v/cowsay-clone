@@ -39,13 +39,6 @@ void print_text(std::string line)
         {
             if (i != 0 && i != 2 && j != 0 && j != size+1)
                 std::cout << line.at(j-1);
-            //TODO: Add if/else to format like...
-            // /------\
-            // | Test |
-            // \------/
-            //         \
-            //          \
-            //          (image here)
             else if ((i == 1 && j == 0) || (i == 1 && j == size+1))
                 std::cout << '|';
             else if ((i == 2 && j == 0) || (i == 0 && j == size+1))
